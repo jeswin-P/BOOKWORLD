@@ -1,0 +1,175 @@
+/* navbar */
+.navbar h1 {
+  color: white;
+}
+
+.profile-nav {
+  color: white;
+  font-weight: 700;
+}
+
+.profile-nav:hover {
+  color: black;
+  text-decoration: none;
+}
+
+
+/* dropdown */
+.profile-menu {
+  background-color: #4f7c82;
+  box-shadow: 15px 20px 20px rgba(0, 0, 0, .3),
+    inset 4px 4px 10px #4f7c82;
+}
+
+.dropdown-item {
+  color: white;
+  font-weight: 700;
+  padding: 10px 15px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.dropdown-item:hover {
+  background-color: white;
+  color: black;
+}
+
+/* slide bar */
+.sidebar {
+  position: fixed;
+  top: 56px;
+  left: 0;
+  bottom: 0;
+  width: 250px;
+  background-color: #0b2e33;
+  color: white;
+  transition: transform 0.3s ease-in-out;
+  z-index: 999;
+}
+
+.slidebar button {
+  color: white !important;
+}
+
+.text-slidebar {
+  color: white;
+}
+
+.sidebar-open {
+  transform: translateX(0);
+}
+
+.sidebar-closed {
+  transform: translateX(-250px);
+}
+
+@media (min-width: 992px) {
+  .sidebar {
+    transform: translateX(0);
+  }
+}
+
+.close-btn {
+  position: absolute;
+  color: white;
+  top: 5px;
+  right: 10px;
+  font-size: 1.5rem;
+}
+
+.edit-btn {
+  color: white;
+  position: relative;
+  top: 70px;
+  right: 4px
+}
+
+.profile-img {
+  height: 140px;
+  width: 140px;
+}
+
+
+/* main contant */
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: #4f7c82;
+  min-height: 100vh;
+  margin-left: 230px;
+
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+  }
+}
+
+
+
+/* overlay */
+.show {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.edit-header {
+  background-color: #0b2e33;
+  color: white;
+}
+
+.form-edit {
+  background-color: #4f7c82;
+}
+
+.close-edit {
+  color: white;
+}
+
+
+/* cart */
+
+.cart-image {
+  width: 100px;
+  max-height: 200px;
+  overflow: hidden;
+}
+
+.cart-cards{
+  width: 250px;
+    min-height:350px;
+    background-color: #4f7c82;
+    border: none;
+    box-shadow: 15px 20px 20px rgba(0,0,0,.3),
+                inset 4px 4px 10px #4f7c82;
+    border-radius: 10px;  
+    overflow: hidden;
+    display: flex;
+    justify-content: center;  
+    align-items: center;
+    margin: 20px 60px;  
+    transition: .2s; 
+
+
+}
+
+.cart-cards:hover {
+  box-shadow:inset 4px 4px 10px rgba(0,0,0,.3),
+         -4px -4px 10px #4f7c82;
+    transition: .2s;
+}
+
+.cartRemove-button {
+  background-color: #4f7c82;
+  color: black;
+  font-size: 14px;
+  padding: 8px 20px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: 1s;
+  border: 2px solid
+}
+
+.cartRemove-button:hover {
+  background-color: white;
+  color: black;
+}

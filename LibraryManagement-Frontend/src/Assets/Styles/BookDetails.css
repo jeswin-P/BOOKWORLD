@@ -1,0 +1,137 @@
+.view{
+    background-color: #4f7c82;
+}
+.viewbook{
+    box-shadow: #00000029 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+   
+}
+.cardbook{
+  background-color: #4f7c82;
+  
+}
+
+
+.borrow{
+  background-color: #4f7c82;
+    color: black;
+    font-size: 18px;
+    padding: 8px 20px;
+    border-radius: 50px;
+    
+    text-decoration: none;
+    transition: 1s ;
+    border:2px solid
+}
+.borrow:hover{
+  background-color:white;
+  color: black;
+}
+
+.review-section {
+  max-height: 300px; 
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+
+.review-section::-webkit-scrollbar {
+    display: none;
+  }
+.btn-review{
+  background-color: #4f7c82;
+  color: black;
+  font-size: 18px;
+  padding: 8px 20px;
+  border-radius: 50px;
+  
+  text-decoration: none;
+  transition: 1s ;
+  border:2px solid
+} 
+.btn-review:hover{
+  background-color:white;
+    color: black;
+}
+
+.show-more{
+  color: white;
+}
+
+.show-more:hover{
+  color: white;
+}
+.show-more{
+  color: white;
+}
+.details-img{
+   max-height: 400px;
+   overflow: hidden;
+}
+
+.star-rating {
+  font-size: 2.0rem;
+  color: #ccc;
+  cursor: pointer;
+}
+
+.star-rating .star.filled {
+  color: gold;
+}
+
+.rating-size{
+  font-size: 14px;
+  background-color: white;
+  border-radius:5px;
+ 
+  
+}
+.title{
+  text-transform: uppercase;
+}
+
+.similarbook-card{
+  width: 250px;
+  min-height:380px;
+  background-color: #4f7c82;
+  border: none;
+  box-shadow: 15px 20px 20px rgba(0,0,0,.3),
+              inset 4px 4px 10px #4f7c82;
+  border-radius: 10px;  
+  overflow: hidden;
+  display: flex;
+  justify-content: center;  
+  align-items: center;
+  margin: 20px 60px;  
+  transition: .2s;      
+           
+ 
+}
+.similarbook-card:hover{
+  box-shadow:inset 4px 4px 10px rgba(0,0,0,.3),
+       -4px -4px 10px #4f7c82;
+  transition: .2s;
+}
+.similarbook-card img{
+  width: 150px;
+  max-height: 200px;
+  overflow: hidden;
+}
+
+/* confirm model */
+
+.book-confirm{
+  background-color: #4f7c82;
+}
+.confirm-header{
+  background-color:#0b2e33;
+  color: white;
+}
+.confirmbuy-img{
+  width: 100px;
+  height: 150px;
+}
+
+.card-wrapper::-webkit-scrollbar {
+  display: none;
+}
+

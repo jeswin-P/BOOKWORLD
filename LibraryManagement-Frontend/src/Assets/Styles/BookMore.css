@@ -1,0 +1,137 @@
+.category-nav{
+    background-color:#2d4649;
+    color: white;
+    
+}
+
+.category-button{
+    background-color:#2d4649;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    padding: 8px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: .5s ;
+    border:2px solid;
+    margin: 10px;
+    color: white;
+}
+.category-button:hover{
+    background-color:white;
+    color:black;
+}
+.category-button:active{
+    background-color: rgb(65, 118, 100);
+    color:black;
+}
+.category-menulist{
+    background-color: #2d4649;
+}
+
+
+.search-col{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    color: white;
+}
+.se-box{
+    margin: 10px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    background-color:#2d4649;
+    border: 2px solid white;
+
+}
+.search-box{
+    margin: 2px;
+    background-color:#2d4649;
+    padding: 8px;
+    border-radius: 50px;
+    border: none;
+    outline: none;
+    color: white;
+    font-weight: 600;
+
+}
+.search-box:hover{
+    background-color:#2d4649;
+    border: none;
+}
+.search-button{
+    width: 50px;
+    color: white;
+    font-size: 20px;
+    border-radius: 50px;
+    background-color:#2d4649;
+    border: none;
+    
+}
+.more-book{
+    margin-top: 75px;
+}
+
+
+/* book section */
+.Morebooks-con{
+    background-color: #4f7c82;
+    min-height: 100vh;
+}
+.Morebooks-con h1{
+    font-weight: 700;
+    font-size: 50px;
+    letter-spacing: 2px;
+    color: black;
+    
+}
+
+.Morebooks-con img{
+    width: 150px;
+    max-height: 200px;
+    overflow: hidden;
+}
+
+.book-card{
+    width: 250px;
+    min-height:350px;
+    background-color: #4f7c82;
+    border: none;
+    box-shadow: 15px 20px 20px rgba(0,0,0,.3),
+                inset 4px 4px 10px #4f7c82;
+    border-radius: 10px;  
+    overflow: hidden;
+    display: flex;
+    justify-content: center;  
+    align-items: center;
+    margin: 20px 60px;  
+    transition: .2s;      
+             
+   
+}
+.book-card:hover{
+    box-shadow:inset 4px 4px 10px rgba(0,0,0,.3),
+         -4px -4px 10px #4f7c82;
+    transition: .2s;
+}
+
+
+
+
+.view-button{
+    background-color: #4f7c82;
+    color:white;
+    font-size: 14px;
+    padding: 8px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 1s ;
+    border:2px solid
+}
+.view-button:hover{
+    background-color:white;
+    color: black;
+} 
+
+

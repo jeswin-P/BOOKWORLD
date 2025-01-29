@@ -1,0 +1,157 @@
+.userLogin{
+    background-color: #4f7c82;
+    height: 100%;
+    padding: 40px;
+    
+    
+}
+.user-con{
+    background-color: #4f7c82;
+    box-shadow: 15px 20px 20px rgba(0,0,0,.3),
+                inset 6px 6px 10px #3f5b5f;
+    border-radius: 30px;
+    color: black;
+}
+
+.user-h1{
+    letter-spacing: 2px;
+    font-weight:800 ;
+}
+.user-form{
+    display: grid;
+    justify-content: center !important;
+    gap: 5px;
+    
+}
+.user-email{
+    color: black;
+    height: 50px;
+    padding: 10px;
+    border-radius: 80px;
+    font-size: large;
+    font-weight: 500;
+    outline: none;
+    border: none;
+    background-color: #4f7c82;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.user-password{
+    color: black;
+    height: 50px;
+    padding: 10px;
+    border-radius: 80px;
+    font-size: large;
+    font-weight: 500;
+    outline: none;
+    border: none;
+    background-color: #4f7c82;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+.user-loginbtn{
+    color: black;
+    width: 260px;
+    border-radius: 30px;
+    font-size: x-large;
+    font-weight: 800;
+    letter-spacing: 2px;
+    outline: none;
+    border: 2px solid black;
+    margin-top: 10px;
+    background-color:#4f7c82;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    margin-bottom: 8px;
+}
+.user-forget{
+    font-weight: 500;
+    display: grid;
+    justify-content:end;
+    color: rgb(5, 5, 152);
+    margin-top: 5px;
+    position: relative;
+    right: 10px;
+    cursor: pointer;
+}
+form p a{
+    font-weight: 700;
+    margin-top: 2px;
+    color: rgb(5, 5, 152);
+}
+form p {
+    color:rgb(13, 13, 13);
+    font-size:15px;
+    margin-top: 30px;
+}
+
+
+
+/* forget password */
+
+  
+
+.login-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.login-content {
+    border-radius: 8px;
+    position: relative;
+}
+.close-button {
+    position: absolute;
+    top: 40px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 3.5rem;
+    cursor: pointer;
+}
+
+
+/* forgot password */
+.Forget-password{
+    background-color: #4f7c82; 
+}
+.forget-card{
+    background-color: #4f7c82;
+    width: 400px;
+    box-shadow: 15px 20px 20px rgba(0,0,0,.3),
+                inset 6px 6px 10px rgb(114, 152, 140);
+    border-radius: 30px;
+    color: black;
+}
+.forget-inputform{
+    color: black;
+    background-color: #6b9095;
+    height: 50px;
+    padding: 10px;
+    font-size: large;
+    font-weight: 500;   
+    outline: none;
+    border: 3px solid;
+    border-bottom-color: black;
+    border-top: none;
+    border-left: none;
+    border-right: none
+}
+.resetpassword-btn{
+    color: black;
+    width: 200px;
+    border-radius: 30px;
+    font-size: x-large;
+    font-weight: 800;
+    letter-spacing: 2px;
+    outline: none;
+    border: 2px solid black;
+    margin-top: 10px;
+    background-color: #4f7c82;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    margin: 18px auto;
+}

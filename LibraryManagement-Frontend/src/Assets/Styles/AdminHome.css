@@ -1,0 +1,144 @@
+.admin-field {
+    min-height: 100vh;
+    background-color: #4f7c82;
+}
+
+.nav-link {
+    color: white !important;
+}
+
+.navbar-droplist {
+    color: white !important;
+}
+
+.dropadmin {
+    background-color: #4f7c82;
+    box-shadow: 15px 20px 20px rgba(0, 0, 0, .3),
+        inset 4px 4px 10px #4f7c82;
+}
+
+
+/* booklist */
+.removebook-box {
+    background-Color: "rgba(0, 0, 0, 0.5)";
+    display: "block";
+
+}
+
+.remove-bookbox {
+    background-color: #4f7c82;
+
+}
+
+.remove-header {
+    background-color: #0b2e33;
+    color: white;
+}
+
+.remove-img {
+    max-height: 150px;
+}
+
+.remove-button {
+    background-color: #0b2e33;
+    color: white;
+    padding: 7px 10px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 1s;
+    border: 2px solid
+}
+
+.remove-button:hover {
+    background-color: #4f7c82;
+    color: black;
+
+}
+
+.count-list {
+    background-color: #2d4649;
+    color: white;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: .5s;
+    border: 2px solid white;
+    margin: 2px;
+
+}
+
+.add-button {
+    background-color: #4f7c82;
+    color: black;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 1s;
+    border: 2px solid
+}
+
+.add-button:hover {
+    background-color: white;
+    color: black;
+}
+
+.logout-button{
+    background-color: #0b2e33;
+    color: white;
+    padding: 7px 10px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 1s;
+    border: 2px solid
+}
+
+.table thead th{
+    background-color: #0b2e33;
+    color: white;
+}
+.table tbody th[scope="row"]{
+    background-color: #0b2e33;
+    color: white;
+}
+
+
+/* studentlist */
+
+.profiledetails-popup{
+    background-color: #4f7c82;
+    cursor: pointer;
+}
+.profileheader-popup{
+    background-color: #0b2e33;
+    color: white;
+}
+.close{
+    color: white !important;
+}
+
+/* borrowbook */
+.retrn-removebtn{
+    background-color: #4f7c82;
+    color: black;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 1s;
+    border: 2px solid
+}
+
+.retrn-removebtn:hover {
+    background-color: rgb(105, 16, 16);
+    color: white;
+}
+
+.active-btn{
+    background-color: #4f7c82;
+    width: 20vw;
+    color: black;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 1s;
+    border: 2px solid
+}
+
+.ic{
+    width: 20px;
+}

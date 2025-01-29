@@ -1,0 +1,207 @@
+/* navbar */
+@import url('https://fonts.googleapis.com/css2?family=Protest+Guerrilla&display=swap');
+
+
+
+.navbar{
+    background-color:#0b2e33;
+
+}
+.home-nav{
+    color: white;
+}
+.home-nav:hover{
+    color: black;
+}
+.logout-button{
+    background-color:#0b2e33;
+    color:white;
+    font-size: 14px;
+    padding: 8px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 1s ;
+    border:2px solid
+}
+.logout-button:hover{
+    background-color:white;
+    color: black;
+} 
+.navbar-toggler{
+    border: none;
+    
+}
+.navbar-toggler:focus{
+    border: none;
+    outline: none;
+}
+.font-book{
+    font-family: "Protest Guerrilla", sans-serif !important;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 30px;
+    position: relative;
+    top: 7px;
+    left: 7px;
+   
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+section{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/****home****/
+
+.home{
+    background-color:#0b2e33;
+    color: white;
+    width:100%;
+   
+}
+.home h1{
+    font-weight: 700;
+    letter-spacing:14px;
+    
+    
+}
+
+.home p{
+    font-size: 16px;
+    position: relative;
+    animation-delay: 0.5s;
+    
+}
+.home .input-group{
+    width: 40%;
+    height: 45px;
+   
+   
+}
+.ex-more{
+    color:white;
+    font-size: 20px;
+    font-weight: 500;
+    border: 2px solid;
+    
+   
+
+}
+.ex-more:hover{
+    background-color:white;
+    color:black;
+}
+.home.ex-more.anime{
+    animation-delay: 1s; 
+}
+.ani{
+    animation-delay: 1.5s;
+}
+
+.anime{
+    opacity: 0;
+    transform: translateY(30px);
+    animation: moveup 0.5s linear forwards;
+}
+@keyframes moveup{
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+.anime.anime-btn{
+   
+    animation-delay: 1s;
+    
+}
+
+
+/* book */
+.book-con{
+    background-color: #4f7c82;
+    height: 100%;
+    overflow: hidden;
+}
+.book-con h1{
+    font-weight: 700;
+    font-size: 50px;
+    letter-spacing: 2px;
+    color: black;
+    
+}
+
+.book-con img{
+    width: 150px;
+    height: 200px;
+    overflow: hidden;
+}
+
+.books-card{
+    width: 230px;
+    height: 300px;
+    background-color:#4f7c82;
+    border: none;
+    box-shadow: 15px 20px 20px rgba(0,0,0,.3),
+                inset 4px 4px 10px #4f7c82;
+    border-radius: 10px;  
+    overflow: hidden;
+    display: flex;
+    justify-content: center;  
+    align-items: center;
+    margin: 20px 60px;  
+    transition: .2s;      
+             
+   
+}
+.book-card:hover{
+    box-shadow:inset 4px 4px 10px rgba(0,0,0,.3),
+         -4px -4px 10px rgb(114, 152, 140);
+    transition: .2s;
+}
+
+
+
+
+.views-button{
+    background-color: #4f7c82;
+    color: black;
+    font-size: 14px;
+    padding: 8px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 1s ;
+    border:2px solid
+}
+.views-button:hover{
+    background-color: white;
+    color:black;
+} 
+
+
+.more-books{
+    background-color: #4f7c82;
+    color: black;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    padding: 8px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: .5s ;
+    border:2px solid;
+    
+}
+.more-books:hover{
+    background-color:white;
+    color: black;
+}
