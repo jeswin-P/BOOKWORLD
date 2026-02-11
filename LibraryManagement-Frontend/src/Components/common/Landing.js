@@ -133,12 +133,13 @@ function Landing() {
   const handleGenreClick = (index) => {
     setIndex(index);
   };
+  
 
   return (
     <div class="LandingPage ">
       {/* Navbar */}
-      <div>
-        <nav class="navbar navbar-expand-lg fixed-top lan-nav ">
+      <div class="landing-nav">
+        <nav class="navbar  navbar-expand-lg fixed-top lan-nav ">
           <div class="container-fluid">
             <p class="lan-book">BOOKWORLD</p>
             <button
@@ -433,6 +434,7 @@ function Landing() {
           <button type="button" class="btn land-more p-3" onClick={handleShowMessage}>EXPLORE MORE</button>
         </div>
       </div>
+      
 
       {/* alert */}
       {showMessage && (

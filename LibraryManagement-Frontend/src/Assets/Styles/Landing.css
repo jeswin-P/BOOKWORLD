@@ -2,6 +2,9 @@
     background-color:#0b2e33;
     color: white;
 }
+.landing-nav{
+    max-width: 100%;
+}
 .login-register{
     color:white;
     font-size: 14px;
@@ -53,13 +56,16 @@
 
 
 .landing{
+    max-width: 100vw;
     min-height: 100vh;
     background-color:#0d2e33;
     color:rgb(245, 245, 245);
+    
 }
 .landing h1{
     font-weight: 700;
-    letter-spacing:14px;
+    letter-spacing : 0.1em;
+    
 }
 .landing p{
     font-size: 16px;
@@ -96,7 +102,7 @@
 }
 #About h1{
     font-weight: 800;
-    font-size: 50px;
+    font-size: 5vw;
 }
 #About p{
     font-size: 17px;
@@ -267,6 +273,3 @@ img.border-dark {
   
  
   
-
-
-
