@@ -18,14 +18,14 @@ function StudentBookDetails() {
   const [isAddedToCart, setIsAddedToCart] = useState(false);
   const { id } = useParams();
 
-  const navigate=useNavigate()
+  const navigate = useNavigate()
   const bookdetails = () => {
-    const studentid=localStorage.getItem("studentid")
-    if(studentid==null){
+    const studentid = localStorage.getItem("studentid")
+    if (studentid == null) {
       navigate("/")
     }
     axios
-      .get(`http://localhost:4060/viewbook/${id}`)
+      .get(`${imgurl}viewbook/${id}`)
       .then((response) => {
         console.log(response);
         setDetails(response.data.data);
@@ -40,7 +40,7 @@ function StudentBookDetails() {
     const bookid = id;
 
 
-    await axios.post("http://localhost:4060/orderr", {
+    await axios.post(`${imgurl}orderr`, {
       studentid: studentid,
       bookid: bookid,
     })
@@ -53,7 +53,7 @@ function StudentBookDetails() {
         console.log(err);
       });
 
-    await axios.put(`http://localhost:4060/bookstatus/${id}`)
+    await axios.put(`${imgurl}bookstatus/${id}`)
       .then((response) => {
         console.log(response)
       })
@@ -95,7 +95,7 @@ function StudentBookDetails() {
     }
 
     try {
-      const response = await axios.post("http://localhost:4060/savereview", {
+      const response = await axios.post(`${imgurl}savereview`, {
         role: role,
         studentid: studentid,
         postid: postid,
@@ -133,13 +133,13 @@ function StudentBookDetails() {
     bookdetails()
     writereview()
     getlike()
-   
+
     getCart()
   }, [id]);
 
   const writereview = () => {
     axios
-      .get(`http://localhost:4060/reviewlist/${id}`)
+      .get(`${imgurl}reviewlist/${id}`)
       .then((response) => {
         console.log("Reviews fetched:", response.data.data);
         setReviews(response.data.data);
@@ -156,7 +156,7 @@ function StudentBookDetails() {
     const studentid = localStorage.getItem("studentid");
 
     axios
-      .get(`http://localhost:4060/getlike/${studentid}`)
+      .get(`${imgurl}getlike/${studentid}`)
       .then((response) => {
         const likeItems = response.data.data;
         const isFavorite = likeItems.some((item) => item.bookid._id === id);
@@ -166,7 +166,7 @@ function StudentBookDetails() {
         console.error("Error checking cart status:", error);
       });
   }
-  
+
   const handleFavoriteToggle = () => {
     const Studentid = localStorage.getItem("studentid");
     const bookid = id;
@@ -175,7 +175,7 @@ function StudentBookDetails() {
 
 
     axios
-      .post(`http://localhost:4060/addlike/${Studentid}/${bookid}`)
+      .post(`${imgurl}addlike/${Studentid}/${bookid}`)
       .then((response) => {
         console.log("Like status updated successfully:", response.data);
       })
@@ -192,7 +192,7 @@ function StudentBookDetails() {
     const studentid = localStorage.getItem("studentid");
 
     axios
-      .post(`http://localhost:4060/removelike/${studentid}/${id}`)
+      .post(`${imgurl}removelike/${studentid}/${id}`)
       .then((response) => {
         setIsFavorite(false);
         console.log("Removed from like:", response.data);
@@ -217,7 +217,7 @@ function StudentBookDetails() {
     const studentid = localStorage.getItem("studentid");
 
     axios
-      .post(`http://localhost:4060/addcart/${studentid}/${id}`)
+      .post(`${imgurl}addcart/${studentid}/${id}`)
       .then((response) => {
         setIsAddedToCart(true);
         console.log("Added to cart:", response.data);
@@ -233,7 +233,7 @@ function StudentBookDetails() {
     const studentid = localStorage.getItem("studentid");
 
     axios
-      .get(`http://localhost:4060/getcart/${studentid}`)
+      .get(`${imgurl}getcart/${studentid}`)
       .then((response) => {
         const cartItems = response.data.data;
         const isBookInCart = cartItems.some((item) => item.bookid._id === id);
@@ -247,7 +247,7 @@ function StudentBookDetails() {
     const studentid = localStorage.getItem("studentid");
 
     axios
-      .post(`http://localhost:4060/removecart/${studentid}/${id}`)
+      .post(`${imgurl}removecart/${studentid}/${id}`)
       .then((response) => {
         setIsAddedToCart(false);
         console.log("Removed from cart:", response.data);
@@ -260,7 +260,7 @@ function StudentBookDetails() {
   useEffect(() => {
     if (Details?.genre) {
       axios
-        .get(`http://localhost:4060/similarbook/${Details.genre}`)
+        .get(`${imgurl}similarbook/${Details.genre}`)
         .then((response) => {
           setSimilarBooks(response.data.data);
         })
@@ -271,7 +271,7 @@ function StudentBookDetails() {
   }, [Details?.genre]);
   useEffect(() => {
     axios
-      .get('http://localhost:4060/latestbook')
+      .get(`${imgurl}latestbook`)
       .then((response) => {
         setLatestBooks(response.data.data);
       })

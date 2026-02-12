@@ -7,14 +7,14 @@ import imgurl from '../../Api/Imgurl'
 import { motion } from "framer-motion";
 function StudentHome() {
   const [Book, setBook] = useState([])
-const navigate=useNavigate()
+  const navigate = useNavigate()
 
   useEffect(() => {
-    const studentid=localStorage.getItem("studentid")
-    if(studentid==null){
+    const studentid = localStorage.getItem("studentid")
+    if (studentid == null) {
       navigate("/")
     }
-    axios.get("http://localhost:4060/booklist")
+    axios.get(`${imgurl}booklist`)
       .then((response) => {
         console.log(response)
         setBook(response.data.data)
@@ -23,7 +23,7 @@ const navigate=useNavigate()
         console.log(error)
       })
   }, [])
-  const displayBook = Book.slice(0,12);
+  const displayBook = Book.slice(0, 12);
   return (
     <><section class="home mt-5 mt-lg-2">
       <div class="container-fluid">
@@ -71,8 +71,8 @@ const navigate=useNavigate()
                             <h5 class="card-title fw-bold">{Book.booktitle}</h5>
                             <p class="card-text">{Book.price}</p>
                             <a href={`/Studentbookdetails/${Book._id}`} class="btn view-button fw-bold">
-                      View Book
-                    </a>
+                              View Book
+                            </a>
                           </div>
                         </div>
                       </div>
@@ -84,10 +84,10 @@ const navigate=useNavigate()
           </div>
         </div>
         <div class="text-center d-flex justify-content-center mt-4">
-            <Link to="/studentbook">
-              <button type="button" class="btn more-books p-3 mb-3">EXPLORE MORE</button>
-            </Link>
-          </div>
+          <Link to="/studentbook">
+            <button type="button" class="btn more-books p-3 mb-3">EXPLORE MORE</button>
+          </Link>
+        </div>
       </div></>
   )
 }

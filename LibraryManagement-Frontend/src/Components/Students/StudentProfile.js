@@ -20,7 +20,7 @@ function StudentProfile() {
     setSlideIsOpen(!SlideisOpen);
   };
 
-const navigate=useNavigate()
+  const navigate = useNavigate()
   const renderActiveComponent = () => {
     switch (activeComponent) {
       case "MyBook":
@@ -48,26 +48,26 @@ const navigate=useNavigate()
 
 
       const id = localStorage.getItem('studentid');
-    const formData = new FormData();
+      const formData = new FormData();
 
-    for (const key in editData) {
-      formData.append(key, editData[key]);
-      // formData.append("image", editData.image)
-    }
+      for (const key in editData) {
+        formData.append(key, editData[key]);
+        // formData.append("image", editData.image)
+      }
 
-    axios
-      .put(`http://localhost:4060/studentupdate/${id}`, formData, {
-        headers: { 'Content-Type': 'multipart/form-data' },
-      })
-      .then((response) => {
-        setProfile(editData);
-        setUserProfile(response.data.data);
-        setEditPage(false);
-        console.log('Profile updated successfully');
-      })
-      .catch((error) => {
-        console.error('Error updating profile:', error);
-      });
+      axios
+        .put(`${imgurl}studentupdate/${id}`, formData, {
+          headers: { 'Content-Type': 'multipart/form-data' },
+        })
+        .then((response) => {
+          setProfile(editData);
+          setUserProfile(response.data.data);
+          setEditPage(false);
+          console.log('Profile updated successfully');
+        })
+        .catch((error) => {
+          console.error('Error updating profile:', error);
+        });
 
     }
 
@@ -77,13 +77,13 @@ const navigate=useNavigate()
     });
   };
   useEffect(() => {
-    const studentid=localStorage.getItem("studentid")
-    if(studentid==null){
+    const studentid = localStorage.getItem("studentid")
+    if (studentid == null) {
       navigate("/")
     }
     const id = localStorage.getItem("studentid")
     console.log(id)
-    axios.get(`http://localhost:4060/studentprofile/${id}`)
+    axios.get(`${imgurl}studentprofile/${id}`)
       .then((response) => {
         console.log(response, "ïi")
         setUserProfile(response.data.data)
@@ -117,15 +117,15 @@ const navigate=useNavigate()
   const handleSaveprofile = () => {
     const id = localStorage.getItem('studentid');
     const formData = new FormData();
-console.log(formData)
+    console.log(formData)
     for (const key in editData) {
       formData.append(key, editData[key]);
     }
     formData.append("file", editData.image);
-  
-    
+
+
     axios
-      .post(`http://localhost:4060/studentupdate/${id}`, formData, {
+      .post(`${imgurl}studentupdate/${id}`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       })
       .then((response) => {
@@ -156,9 +156,9 @@ console.log(formData)
                 <a
                   class="nav-link"
                   href="Studenthome"
-         
+
                 >
-                 Home
+                  Home
                 </a>
               </li>
               <li class="nav-item">
@@ -188,7 +188,7 @@ console.log(formData)
                   Cart
                 </a>
               </li>
-              
+
             </ul>
 
             {/* Dropdown for small screens */}
@@ -209,14 +209,14 @@ console.log(formData)
                   aria-labelledby="menuDropdown"
                 >
                   <li class="nav-item">
-                <a
-                  class="nav-link"
-                  href="Studenthome"
-         
-                >
-                 Home
-                </a>
-              </li>
+                    <a
+                      class="nav-link"
+                      href="Studenthome"
+
+                    >
+                      Home
+                    </a>
+                  </li>
                   <li>
                     <a
                       class="dropdown-item"
@@ -244,7 +244,7 @@ console.log(formData)
                       Cart
                     </a>
                   </li>
-                
+
                 </ul>
               </li>
             </ul>

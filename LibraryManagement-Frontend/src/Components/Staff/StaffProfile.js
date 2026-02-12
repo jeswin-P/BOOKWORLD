@@ -15,7 +15,7 @@ function StaffProfile() {
   const [editData, setEditData] = useState();
   const [UserProfile, setUserProfile] = useState({})
 
-  const navigate=useNavigate()
+  const navigate = useNavigate()
 
   const toggleSidebar = () => {
     setSlideIsOpen(!SlideisOpen);
@@ -49,26 +49,26 @@ function StaffProfile() {
 
 
       const id = localStorage.getItem('studentid');
-    const formData = new FormData();
+      const formData = new FormData();
 
-    for (const key in editData) {
-      formData.append(key, editData[key]);
-      // formData.append("image", editData.image)
-    }
+      for (const key in editData) {
+        formData.append(key, editData[key]);
+        // formData.append("image", editData.image)
+      }
 
-    axios
-      .put(`http://localhost:4060/staffupdate/${id}`, formData, {
-        headers: { 'Content-Type': 'multipart/form-data' },
-      })
-      .then((response) => {
-        setProfile(editData);
-        setUserProfile(response.data.data);
-        setEditPage(false);
-        console.log('Profile updated successfully');
-      })
-      .catch((error) => {
-        console.error('Error updating profile:', error);
-      });
+      axios
+        .put(`${imgurl}staffupdate/${id}`, formData, {
+          headers: { 'Content-Type': 'multipart/form-data' },
+        })
+        .then((response) => {
+          setProfile(editData);
+          setUserProfile(response.data.data);
+          setEditPage(false);
+          console.log('Profile updated successfully');
+        })
+        .catch((error) => {
+          console.error('Error updating profile:', error);
+        });
 
     }
 
@@ -78,15 +78,15 @@ function StaffProfile() {
     });
   };
   useEffect(() => {
-    const staffid=localStorage.getItem("staffid")
-    if(staffid==null){
+    const staffid = localStorage.getItem("staffid")
+    if (staffid == null) {
       navigate("/")
     }
-  
+
     const id = localStorage.getItem("staffid")
-   
+
     console.log(id)
-    axios.get(`http://localhost:4060/staffprofile/${id}`)
+    axios.get(`${imgurl}staffprofile/${id}`)
       .then((response) => {
         console.log(response, "ïi")
         setUserProfile(response.data.data)
@@ -120,15 +120,15 @@ function StaffProfile() {
   const handleSaveprofile = () => {
     const id = localStorage.getItem('staffid');
     const formData = new FormData();
-console.log(formData)
+    console.log(formData)
     for (const key in editData) {
       formData.append(key, editData[key]);
     }
     formData.append("file", editData.image);
-  
-    
+
+
     axios
-      .post(`http://localhost:4060/staffUpdate/${id}`, formData, {
+      .post(`${imgurl}staffUpdate/${id}`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       })
       .then((response) => {
@@ -157,13 +157,13 @@ console.log(formData)
           <h1 class="navbar-brand  m-2 fw-bold">BOOKWORLD</h1>
           <div class="ms-auto">
             <ul class="nav profile-nav text-dark d-none d-lg-flex">
-            <li class="nav-item">
+              <li class="nav-item">
                 <a
                   class="nav-link"
                   href="Staffhome"
-         
+
                 >
-                 Home
+                  Home
                 </a>
               </li>
               <li class="nav-item ">
@@ -212,15 +212,15 @@ console.log(formData)
                   class="dropdown-menu profile-menu  dropdown-menu-end "
                   aria-labelledby="menuDropdown"
                 >
-                   <li class="nav-item">
-                <a
-                  class="nav-link"
-                  href="Staffhome"
-         
-                >
-                 Home
-                </a>
-              </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link"
+                      href="Staffhome"
+
+                    >
+                      Home
+                    </a>
+                  </li>
                   <li>
                     <a
                       class="dropdown-item"
@@ -263,7 +263,7 @@ console.log(formData)
           <i class="ri-close-large-line"></i>
         </button>
         <div class="p-2 mt-3">
-        <div class="text-center mb-5   text-slidebar">
+          <div class="text-center mb-5   text-slidebar">
             <img
               src={`${imgurl}${UserProfile?.image?.originalname}`}
               alt="Profile"
@@ -283,7 +283,7 @@ console.log(formData)
             <p>{UserProfile.regno}</p>
             <p>{UserProfile.department}</p>
             <p>{UserProfile.email}</p>
-            
+
           </div>
         </div>
       </div>

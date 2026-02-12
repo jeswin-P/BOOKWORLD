@@ -25,7 +25,7 @@ function Landing() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4060/booklist")
+      .get(`${imgurl}booklist`)
       .then((response) => {
         console.log(response);
         setBook(response.data.data);
@@ -47,11 +47,11 @@ function Landing() {
   const handleloginOpen = () => {
     setloginVisible(true)
   };
-  const handleloginClose = () =>{ 
+  const handleloginClose = () => {
     setloginVisible(false)
   };
 
-  
+
 
   const quotes = [
     {
@@ -133,7 +133,7 @@ function Landing() {
   const handleGenreClick = (index) => {
     setIndex(index);
   };
-  
+
 
   return (
     <div class="LandingPage ">
@@ -434,7 +434,7 @@ function Landing() {
           <button type="button" class="btn land-more p-3" onClick={handleShowMessage}>EXPLORE MORE</button>
         </div>
       </div>
-      
+
 
       {/* alert */}
       {showMessage && (

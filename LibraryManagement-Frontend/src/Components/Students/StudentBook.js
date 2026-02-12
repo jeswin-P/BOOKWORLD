@@ -9,14 +9,14 @@ function StudentBook() {
   const [Books, setBooks] = useState([]);
   const [filteredBooks, setFilteredBooks] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
-  const navigate=useNavigate()
+  const navigate = useNavigate()
   useEffect(() => {
-    const studentid=localStorage.getItem("studentid")
-    if(studentid==null){
+    const studentid = localStorage.getItem("studentid")
+    if (studentid == null) {
       navigate("/")
     }
     axios
-      .get("http://localhost:4060/booklist")
+      .get(`${imgurl}booklist`)
       .then((response) => {
         console.log(response);
         setBooks(response.data.data);
@@ -37,7 +37,7 @@ function StudentBook() {
   };
 
   const handleSearch = (e) => {
-    const Search = e.target.value.toLowerCase(); 
+    const Search = e.target.value.toLowerCase();
     setSearchTerm(Search);
 
     const filtered = Books.filter(
@@ -45,7 +45,7 @@ function StudentBook() {
         return book.booktitle.toLowerCase().includes(Search) ||
           book.genre.toLowerCase().includes(Search) ||
           book.author?.toLowerCase().includes(Search);
-      } 
+      }
     );
     setFilteredBooks(filtered);
   };
@@ -156,7 +156,7 @@ function StudentBook() {
                               class="btn view-button fw-bold"
                             >
                               View Book
-                            </a> 
+                            </a>
                           </div>
                         </div>
                       </motion.div>

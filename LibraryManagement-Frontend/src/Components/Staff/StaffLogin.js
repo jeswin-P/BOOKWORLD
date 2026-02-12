@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../../Assets/Styles/Login.css";
 import { Link, useNavigate } from "react-router-dom";
+import imgurl from "../../Api/Imgurl";
 import stfimg from "../../Assets/Images/stfimg.png";
 import axios from "axios";
 
@@ -17,7 +18,7 @@ function StaffLogin() {
   const staffhandle = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:4060/stafflogin", Staff)
+      .post(`${imgurl}stafflogin`, Staff)
       .then((response) => {
         if (response.data.msg === "Logged In Successfully" && response.data.data.isactive == true) {
           localStorage.setItem("staffid", response.data.data._id)

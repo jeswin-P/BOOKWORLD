@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import imgurl from '../../Api/Imgurl';
 import '../../Assets/Styles/Login.css'
 
 function StudentForgetPassword() {
@@ -9,7 +10,7 @@ function StudentForgetPassword() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [message, setMessage] = useState("");
 
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -19,12 +20,12 @@ function StudentForgetPassword() {
     }
 
     axios
-      .put("http://localhost:4060/password", { email, newPassword })
+      .put(`${imgurl}password`, { email, newPassword })
       .then((response) => {
         if (response.data.status === 200) {
           navigate("/Studentlogin")
           setMessage("Password reset successfully!");
-          
+
         }
       })
       .catch((err) => {
@@ -42,11 +43,10 @@ function StudentForgetPassword() {
         <h3 class="text-center mb-4 fw-bold">Forgot Password</h3>
         {message && (
           <div
-            class={`alert ${
-              message === "Password reset successfully!"
+            class={`alert ${message === "Password reset successfully!"
                 ? "alert-success"
                 : "alert-danger"
-            }`}
+              }`}
           >
             {message}
           </div>
@@ -99,7 +99,7 @@ function StudentForgetPassword() {
           {/* Submit Button */}
           <div class="d-grid">
             <button type="submit" class="btn resetpassword-btn">
-              Reset 
+              Reset
             </button>
           </div>
         </form>

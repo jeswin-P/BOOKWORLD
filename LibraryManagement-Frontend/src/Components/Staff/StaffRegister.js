@@ -4,6 +4,7 @@ import stfreg from "../../Assets/Images/stfreg.png";
 import profileimg from "../../Assets/Images/profile.png";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import imgurl from "../../Api/Imgurl";
 
 function StaffRegister() {
   const [Register, setRegister] = useState({
@@ -12,10 +13,10 @@ function StaffRegister() {
     idno: "",
     email: "",
     password: "",
-    file:null,
+    file: null,
   });
   const [Profile, setProfile] = useState();
-  const navigate=useNavigate()
+  const navigate = useNavigate()
 
   const reg = (e) => {
     setRegister({
@@ -24,9 +25,9 @@ function StaffRegister() {
         e.target.name === "file" ? e.target.files[0] : e.target.value
     });
   };
-  
 
- 
+
+
 
   const profileChange = (upload) => {
     const file = upload.target.files[0];
@@ -40,10 +41,10 @@ function StaffRegister() {
       reader.readAsDataURL(file);
     }
 
-    
+
   };
 
-  const handlefilechange=(e)=>{
+  const handlefilechange = (e) => {
     reg(e);
     profileChange(e);
   }
@@ -56,16 +57,16 @@ function StaffRegister() {
     }
     console.log(formData)
 
-    axios.post("http://localhost:4060/savestaff",formData,{
-      headers:{"content-type": "multipart/form-data"}
+    axios.post(`${imgurl}savestaff`, formData, {
+      headers: { "content-type": "multipart/form-data" }
     })
-    .then((response)=>{
+      .then((response) => {
         alert(response.data.msg)
         navigate("/StaffLogin")
-    })
-    .catch((err)=>{
-      console.log(err)
-    })
+      })
+      .catch((err) => {
+        console.log(err)
+      })
     console.log(Register)
   };
 

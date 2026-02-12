@@ -19,22 +19,22 @@ function StaffBookDetails() {
   const [isAddedToCart, setIsAddedToCart] = useState(false);
   const { id } = useParams();
 
-const navigate=useNavigate()
-  const bookdetails=()=>{
-    const staffid=localStorage.getItem("staffid")
-    if(staffid==null){
+  const navigate = useNavigate()
+  const bookdetails = () => {
+    const staffid = localStorage.getItem("staffid")
+    if (staffid == null) {
       navigate("/")
     }
     axios
-    .get(`http://localhost:4060/viewbook/${id}`)
-    .then((response) => {
-      console.log(response);
-      setDetails(response.data.data);
-      setIsBorrowed(response.data.data.bookstatus)
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+      .get(`${imgurl}viewbook/${id}`)
+      .then((response) => {
+        console.log(response);
+        setDetails(response.data.data);
+        setIsBorrowed(response.data.data.bookstatus)
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   const handleOrder = async () => {
@@ -42,7 +42,7 @@ const navigate=useNavigate()
     const bookid = id;
 
 
-    await axios.post("http://localhost:4060/order", {
+    await axios.post(`${imgurl}order`, {
       staffid: staffid,
       bookid: bookid,
     })
@@ -55,7 +55,7 @@ const navigate=useNavigate()
         console.log(err);
       });
 
-    await axios.put(`http://localhost:4060/bookstatus/${id}`)
+    await axios.put(`${imgurl}bookstatus/${id}`)
       .then((response) => {
         console.log(response)
       })
@@ -63,7 +63,7 @@ const navigate=useNavigate()
         console.log(err);
       })
   };
-  
+
   const handleconfirmborrow = () => {
     setShowConfirmationModal(true);
     bookdetails()
@@ -74,21 +74,21 @@ const navigate=useNavigate()
     setShowConfirmationModal(false);
   };
 
- 
-  useEffect(()=>{
+
+  useEffect(() => {
     bookdetails()
     writereview()
     staffLike()
     getCart()
-  },[id])
- 
+  }, [id])
+
 
   const calculateAverageRating = (reviews) => {
     const totalRatings = reviews.reduce((sum, review) => sum + review.rating, 0);
     return (totalRatings / reviews.length).toFixed(1);
   };
   const averageRating = calculateAverageRating(Reviews);
- 
+
 
   const handleSubmitReview = async () => {
     const staffid = localStorage.getItem("staffid");
@@ -106,7 +106,7 @@ const navigate=useNavigate()
     }
 
     try {
-      const response = await axios.post("http://localhost:4060/savereview", {
+      const response = await axios.post(`${imgurl}savereview`, {
         role: role,
         staffid: staffid,
         postid: postid,
@@ -128,7 +128,7 @@ const navigate=useNavigate()
 
   const reviewsToDisplay = showAllReviews ? Reviews : Reviews.slice(0, 3);
 
-  
+
 
   const handleReviewTextChange = (e) => {
     setReviewText(e.target.value);
@@ -137,16 +137,16 @@ const navigate=useNavigate()
     setRating(newRating);
   };
 
-  const writereview=()=>{
+  const writereview = () => {
     axios
-    .get(`http://localhost:4060/reviewlist/${id}`)
-    .then((response) => {
-      console.log("Reviews fetched:", response.data.data);
-      setReviews(response.data.data);
-    })
-    .catch((error) => {
-      console.error("Error fetching reviews:", error.response ? error.response.data : error.message);
-    });
+      .get(`${imgurl}reviewlist/${id}`)
+      .then((response) => {
+        console.log("Reviews fetched:", response.data.data);
+        setReviews(response.data.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching reviews:", error.response ? error.response.data : error.message);
+      });
   }
 
   const handleFavoriteToggle = () => {
@@ -157,7 +157,7 @@ const navigate=useNavigate()
 
 
     axios
-      .post(`http://localhost:4060/staffaddlike/${Staffid}/${bookid}`)
+      .post(`${imgurl}staffaddlike/${Staffid}/${bookid}`)
       .then((response) => {
         console.log("Like status updated successfully:", response.data);
       })
@@ -178,11 +178,11 @@ const navigate=useNavigate()
       handleFavoriteToggle();
     }
   }
-  const staffLike=()=>{
+  const staffLike = () => {
     const staffid = localStorage.getItem("staffid");
 
     axios
-      .get(`http://localhost:4060/staffgetlike/${staffid}`)
+      .get(`${imgurl}staffgetlike/${staffid}`)
       .then((response) => {
         const likeItems = response.data.data;
         const isFavorite = likeItems.some((item) => item.bookid._id === id);
@@ -196,7 +196,7 @@ const navigate=useNavigate()
     const staffid = localStorage.getItem("staffid");
 
     axios
-      .post(`http://localhost:4060/staffremovelike/${staffid}/${id}`)
+      .post(`${imgurl}staffremovelike/${staffid}/${id}`)
       .then((response) => {
         setIsFavorite(false);
         console.log("Removed from like:", response.data);
@@ -211,7 +211,7 @@ const navigate=useNavigate()
     const staffid = localStorage.getItem("staffid");
 
     axios
-      .post(`http://localhost:4060/addcart/${staffid}/${id}`)
+      .post(`${imgurl}addcart/${staffid}/${id}`)
       .then((response) => {
         setIsAddedToCart(true);
         console.log("Added to cart:", response.data);
@@ -223,26 +223,26 @@ const navigate=useNavigate()
         }
       });
   };
-  
-const getCart=()=>{
-  const staffid = localStorage.getItem("staffid");
 
-  axios
-    .get(`http://localhost:4060/getcart/${staffid}`)
-    .then((response) => {
-      const cartItems = response.data.data;
-      const isBookInCart = cartItems.some((item) => item.bookid._id === id);
-      setIsAddedToCart(isBookInCart);
-    })
-    .catch((error) => {
-      console.error("Error checking cart status:", error);
-    });
-}
-const handleRemoveFromCart = () => {
+  const getCart = () => {
     const staffid = localStorage.getItem("staffid");
 
     axios
-      .post(`http://localhost:4060/removecart/${staffid}/${id}`)
+      .get(`${imgurl}getcart/${staffid}`)
+      .then((response) => {
+        const cartItems = response.data.data;
+        const isBookInCart = cartItems.some((item) => item.bookid._id === id);
+        setIsAddedToCart(isBookInCart);
+      })
+      .catch((error) => {
+        console.error("Error checking cart status:", error);
+      });
+  }
+  const handleRemoveFromCart = () => {
+    const staffid = localStorage.getItem("staffid");
+
+    axios
+      .post(`${imgurl}removecart/${staffid}/${id}`)
       .then((response) => {
         setIsAddedToCart(false);
         console.log("Removed from cart:", response.data);
@@ -255,7 +255,7 @@ const handleRemoveFromCart = () => {
   useEffect(() => {
     if (Details?.genre) {
       axios
-        .get(`http://localhost:4060/similarbook/${Details.genre}`)
+        .get(`${imgurl}similarbook/${Details.genre}`)
         .then((response) => {
           setSimilarBooks(response.data.data);
         })
@@ -266,7 +266,7 @@ const handleRemoveFromCart = () => {
   }, [Details?.genre]);
   useEffect(() => {
     axios
-      .get('http://localhost:4060/latestbook')
+      .get(`${imgurl}latestbook`)
       .then((response) => {
         setLatestBooks(response.data.data);
       })
@@ -287,7 +287,7 @@ const handleRemoveFromCart = () => {
                   className="img-fluid rounded details-img shadow-sm"
                 />
                 <div class="mt-5">
-                  {Details?.bookstatus ==="pending" ? (
+                  {Details?.bookstatus === "pending" ? (
                     <button class="btn borrow fw-bold w-100 mb-4" onClick={handleconfirmborrow}>
                       Borrow Book
                     </button>

@@ -17,7 +17,7 @@ function BookList() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4060/bookcount")
+      .get(`${imgurl}bookcount`)
       .then((response) => {
         setTotalBooks(response.data.totalBooks);
         setCategoryCount(response.data.categoryCount);
@@ -30,7 +30,7 @@ function BookList() {
 
   const booklist = () => {
     axios
-      .get("http://localhost:4060/booklist")
+      .get(`${imgurl}booklist`)
       .then((response) => {
         setBook(response.data.data);
         setFilteredBooks(response.data.data);
@@ -95,7 +95,7 @@ function BookList() {
   const removebook = () => {
     if (selectedBook) {
       axios
-        .post(`http://localhost:4060/removebook/${selectedBook._id}`)
+        .post(`${imgurl}removebook/${selectedBook._id}`)
         .then(() => {
           booklist();
           closeModal();
@@ -140,7 +140,7 @@ function BookList() {
                 </div>
               </div>
             </div>
-            
+
           </div>
 
           {/* Search Bar */}
