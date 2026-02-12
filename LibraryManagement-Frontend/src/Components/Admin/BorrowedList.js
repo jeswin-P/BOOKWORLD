@@ -8,7 +8,7 @@ function BorrowedList() {
   const [selectedBook, setSelectedBook] = useState(null);
 
   const borrowbook = () => {
-    axios.get("http://localhost:4060/borrowlist")
+    axios.get(`${imgurl}borrowlist`)
       .then((response) => {
         console.log(response)
         setBorrowed(response.data.data)
@@ -26,7 +26,7 @@ function BorrowedList() {
 
     console.log(bookid, "i")
     console.log(studentid, "ii")
-    axios.delete(`http://localhost:4060/returnorder/${studentid}`)
+    axios.delete(`${imgurl}returnorder/${studentid}`)
       .then((response) => {
         console.log(response)
         borrowbook()
@@ -35,7 +35,7 @@ function BorrowedList() {
         console.log(err)
       })
 
-    axios.put(`http://localhost:4060/bookreturnstatus/${bookid}`)
+    axios.put(`${imgurl}bookreturnstatus/${bookid}`)
       .then((response) => {
         console.log(response)
       })
@@ -74,22 +74,22 @@ function BorrowedList() {
             </thead>
 
             <tbody>
-          {Borrowed.map((e) => {
-            return (
-            
+              {Borrowed.map((e) => {
+                return (
 
-              <tr>
-                <td class="fw-bold"  onClick={() => handleViewStudent(e?.studentid)}>{e?.studentid?.name}</td>
-                <td class="fw-bold" onClick={() => handleViewBook(e?.bookid)}>{e?.bookid?.booktitle}</td>
-                <td><button class="btn retrn-removebtn text-center fw-bold" onClick={() => returnbook(e?.studentid?._id, e?.bookid?._id)}>remove</button></td>
-              </tr>
 
-            
+                  <tr>
+                    <td class="fw-bold" onClick={() => handleViewStudent(e?.studentid)}>{e?.studentid?.name}</td>
+                    <td class="fw-bold" onClick={() => handleViewBook(e?.bookid)}>{e?.bookid?.booktitle}</td>
+                    <td><button class="btn retrn-removebtn text-center fw-bold" onClick={() => returnbook(e?.studentid?._id, e?.bookid?._id)}>remove</button></td>
+                  </tr>
 
-            )
 
-          })}
-          </tbody>
+
+                )
+
+              })}
+            </tbody>
 
           </table>
 
@@ -117,11 +117,11 @@ function BorrowedList() {
                 ></button>
               </div>
               <div class="modal-body text-center fw-semibold">
-              <img
-              src={`${imgurl}${selectedStudent?.image?.originalname}`}
-              alt="Profile"
-              class="rounded-circle profile-img img-fluid mb-4 "
-            />
+                <img
+                  src={`${imgurl}${selectedStudent?.image?.originalname}`}
+                  alt="Profile"
+                  class="rounded-circle profile-img img-fluid mb-4 "
+                />
                 <p>
                   <strong>Name:</strong> {selectedStudent.name}
                 </p>
@@ -173,7 +173,7 @@ function BorrowedList() {
                 ></button>
               </div>
               <div class="modal-body text-center fw-semibold">
-              <img
+                <img
                   src={`${imgurl}${selectedBook?.image?.originalname}`}
                   alt={selectedBook.booktitle}
                   class="img-fluid mb-3 remove-img"

@@ -6,19 +6,19 @@ import '../../Assets/Styles/BookMore.css'
 import { useNavigate } from 'react-router-dom';
 
 function StaffBook() {
-  
+
   const [Books, setBooks] = useState([]);
   const [filteredBooks, setFilteredBooks] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
 
-  const navigate=useNavigate()
+  const navigate = useNavigate()
   useEffect(() => {
-    const staffid=localStorage.getItem("staffid")
-    if(staffid==null){
+    const staffid = localStorage.getItem("staffid")
+    if (staffid == null) {
       navigate("/")
     }
     axios
-      .get("http://localhost:4060/booklist")
+      .get(`${imgurl}booklist`)
       .then((response) => {
         console.log(response);
         setBooks(response.data.data);

@@ -5,10 +5,10 @@ import imgurl from '../../Api/Imgurl'
 function StaffBorrowList() {
   const [Borrowed, setBorrowed] = useState([]);
   const [selectedStaff, setSelectedStaff] = useState(null);
-    const [selectedBook, setSelectedBook] = useState(null);
+  const [selectedBook, setSelectedBook] = useState(null);
 
   const borrowbook = () => {
-    axios.get("http://localhost:4060/borrowedbook")
+    axios.get(`${imgurl}borrowedbook`)
       .then((response) => {
         console.log(response)
         setBorrowed(response.data.data)
@@ -26,7 +26,7 @@ function StaffBorrowList() {
 
     console.log(bookid, "i")
     console.log(staffid, "ii")
-    axios.delete(`http://localhost:4060/returnbook/${staffid}`)
+    axios.delete(`${imgurl}returnbook/${staffid}`)
       .then((response) => {
         console.log(response)
         borrowbook()
@@ -35,7 +35,7 @@ function StaffBorrowList() {
         console.log(err)
       })
 
-    axios.put(`http://localhost:4060/bookreturnstatus/${bookid}`)
+    axios.put(`${imgurl}bookreturnstatus/${bookid}`)
       .then((response) => {
         console.log(response)
       })
@@ -117,11 +117,11 @@ function StaffBorrowList() {
                 ></button>
               </div>
               <div class="modal-body text-center fw-semibold">
-              <img
-              src={`${imgurl}${selectedStaff?.image?.originalname}`}
-              alt="Profile"
-              class="rounded-circle profile-img img-fluid mb-4 "
-            />
+                <img
+                  src={`${imgurl}${selectedStaff?.image?.originalname}`}
+                  alt="Profile"
+                  class="rounded-circle profile-img img-fluid mb-4 "
+                />
                 <p>
                   <strong>Name:</strong> {selectedStaff.name}
                 </p>
@@ -173,7 +173,7 @@ function StaffBorrowList() {
                 ></button>
               </div>
               <div class="modal-body text-center fw-semibold">
-              <img
+                <img
                   src={`${imgurl}${selectedBook?.image?.originalname}`}
                   alt={selectedBook.booktitle}
                   class="img-fluid mb-3 remove-img"

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../../Assets/Styles/Addbook.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import imgurl from "../../Api/Imgurl";
 
 function AddBook() {
   const [AddBook, setAddBook] = useState({
@@ -11,7 +12,7 @@ function AddBook() {
     description: "",
     date: "",
     file: "",
-    
+
   });
   const [ValideDate, setValideDate] = useState()
   const [Profile, setProfile] = useState();
@@ -25,7 +26,7 @@ function AddBook() {
         e.target.name === "file" ? e.target.files[0] : e.target.value,
     });
   };
-  
+
   const profileChange = (upload) => {
     const file = upload.target.files[0];
     if (file) {
@@ -50,7 +51,7 @@ function AddBook() {
       return; // Stop submission if the validation fails
     }
     axios
-      .post("http://localhost:4060/savebook", formdata, {
+      .post(`${imgurl}savebook`, formdata, {
         headers: { "content-Type": "multipart/form-data" },
       })
       .then((response) => {

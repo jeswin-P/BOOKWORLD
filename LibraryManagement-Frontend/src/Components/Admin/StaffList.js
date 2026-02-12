@@ -4,19 +4,19 @@ import imgurl from '../../Api/Imgurl'
 
 function StaffList() {
   const [StaffList, setStaffList] = useState([]);
-   const [selectedStaff, setSelectedStaff] = useState(null);
+  const [selectedStaff, setSelectedStaff] = useState(null);
 
-   const Stafflist=()=>{
+  const Stafflist = () => {
     axios
-    .get("http://localhost:4060/stafflist")
-    .then((response) => {
-      console.log(response);
-      setStaffList(response.data.data);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-   }
+      .get(`${imgurl}stafflist`)
+      .then((response) => {
+        console.log(response);
+        setStaffList(response.data.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
   useEffect(() => {
     Stafflist()
     handleViewDetails()
@@ -31,17 +31,17 @@ function StaffList() {
   };
 
   const handlestatus = (staffid) => {
-    axios.put(`http://localhost:4060/staffdeactive/${staffid}`)
-        .then((response) => {
-            console.log(response)
-            Stafflist()
-            handleViewDetails()
-            
-        })
-        .catch((err) => {
-            console.log(err)
-        })
-}
+    axios.put(`${imgurl}staffdeactive/${staffid}`)
+      .then((response) => {
+        console.log(response)
+        Stafflist()
+        handleViewDetails()
+
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
   return (
     <div>
       <div class="container text-center mt-5">
@@ -67,8 +67,8 @@ function StaffList() {
                       <td>{staff.idno}</td>
                       <td>{staff.department}</td>
                       <td>
-                      <div onClick={() => handleViewDetails(staff)} ><i class="ri-information-2-fill ic"></i></div>
-                    </td>
+                        <div onClick={() => handleViewDetails(staff)} ><i class="ri-information-2-fill ic"></i></div>
+                      </td>
                     </tr>
                   </tbody>
                 );
@@ -98,11 +98,11 @@ function StaffList() {
                 ></button>
               </div>
               <div className="modal-body text-center fw-semibold">
-              <img
-              src={`${imgurl}${selectedStaff?.image?.originalname}`}
-              alt="Profile"
-              class="rounded-circle profile-img img-fluid mb-4 "
-            />
+                <img
+                  src={`${imgurl}${selectedStaff?.image?.originalname}`}
+                  alt="Profile"
+                  class="rounded-circle profile-img img-fluid mb-4 "
+                />
                 <p>
                   <strong>Name:</strong> {selectedStaff.name}
                 </p>

@@ -6,17 +6,17 @@ function StudentList() {
   const [StudentsList, setStudentsList] = useState([]);
   const [selectedStudent, setSelectedStudent] = useState(null);
 
-const studentlist=()=>{
-  axios
-  .get("http://localhost:4060/studentlist")
-  .then((response) => {
-    console.log(response);
-    setStudentsList(response.data.data);
-  })
-  .catch((error) => {
-    console.log(error);
-  });
-}
+  const studentlist = () => {
+    axios
+      .get(`${imgurl}studentlist`)
+      .then((response) => {
+        console.log(response);
+        setStudentsList(response.data.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
   useEffect(() => {
     studentlist()
     handleViewDetails()
@@ -31,17 +31,17 @@ const studentlist=()=>{
   };
 
   const handlestatus = (studentid) => {
-    axios.put(`http://localhost:4060/deactive/${studentid}`)
-        .then((response) => {
-            console.log(response)
-            studentlist()
-            handleViewDetails()
-            
-        })
-        .catch((err) => {
-            console.log(err)
-        })
-}
+    axios.put(`${imgurl}deactive/${studentid}`)
+      .then((response) => {
+        console.log(response)
+        studentlist()
+        handleViewDetails()
+
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
   return (
     <div>
       <div class="container text-center mt-5">
@@ -67,8 +67,8 @@ const studentlist=()=>{
                       <td class="fw-semibold">{data.department}</td>
                       <td class="fw-semibold">{data.regno}</td>
                       <td>
-                      <div onClick={() => handleViewDetails(data)} ><i class="ri-information-2-fill"></i></div>
-                    </td>
+                        <div onClick={() => handleViewDetails(data)} ><i class="ri-information-2-fill"></i></div>
+                      </td>
                     </tr>
                   </tbody>
                 );
@@ -98,11 +98,11 @@ const studentlist=()=>{
                 ></button>
               </div>
               <div className="modal-body text-center fw-semibold">
-              <img
-              src={`${imgurl}${selectedStudent?.image?.originalname}`}
-              alt="Profile"
-              class="rounded-circle profile-img img-fluid mb-4 "
-            />
+                <img
+                  src={`${imgurl}${selectedStudent?.image?.originalname}`}
+                  alt="Profile"
+                  class="rounded-circle profile-img img-fluid mb-4 "
+                />
                 <p>
                   <strong>Name:</strong> {selectedStudent.name}
                 </p>

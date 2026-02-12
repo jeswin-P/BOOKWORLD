@@ -1,52 +1,52 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import imgurl from '../../Api/Imgurl';
 import '../../Assets/Styles/Login.css'
 
 function StaffForgetPassword() {
 
-    const [email, setEmail] = useState("");
-    const [newPassword, setNewPassword] = useState("");
-    const [confirmPassword, setConfirmPassword] = useState("");
-    const [message, setMessage] = useState("");
-  
-    const navigate = useNavigate(); 
-    const handleSubmit = (e) => {
-      e.preventDefault();
-  
-      if (newPassword !== confirmPassword) {
-        setMessage("Passwords do not match!");
-        return;
-      }
-  
-      axios
-        .put("http://localhost:4060/staffpassword", { email, newPassword })
-        .then((response) => {
-          if (response.data.status === 200) {
-            navigate("/Stafflogin")
-            setMessage("Password reset successfully!");
-            
-          }
-        })
-        .catch((err) => {
-          if (err.response && err.response.status === 404) {
-            setMessage("user not found!");
-          } else {
-            setMessage("Failed to reset password.");
-          }
-        });
-    };
+  const [email, setEmail] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [message, setMessage] = useState("");
+
+  const navigate = useNavigate();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (newPassword !== confirmPassword) {
+      setMessage("Passwords do not match!");
+      return;
+    }
+
+    axios
+      .put(`${imgurl}staffpassword`, { email, newPassword })
+      .then((response) => {
+        if (response.data.status === 200) {
+          navigate("/Stafflogin")
+          setMessage("Password reset successfully!");
+
+        }
+      })
+      .catch((err) => {
+        if (err.response && err.response.status === 404) {
+          setMessage("user not found!");
+        } else {
+          setMessage("Failed to reset password.");
+        }
+      });
+  };
   return (
     <div class="container-fluide d-flex justify-content-center align-items-center vh-100 Forget-password">
       <div class="card p-4 shadow forget-card" >
         <h3 class="text-center mb-4 fw-bold">staff Forgot Password</h3>
         {message && (
           <div
-            class={`alert ${
-              message === "Password reset successfully!"
+            class={`alert ${message === "Password reset successfully!"
                 ? "alert-success"
                 : "alert-danger"
-            }`}
+              }`}
           >
             {message}
           </div>
@@ -99,7 +99,7 @@ function StaffForgetPassword() {
           {/* Submit Button */}
           <div class="d-grid">
             <button type="submit" class="btn resetpassword-btn">
-              Reset 
+              Reset
             </button>
           </div>
         </form>

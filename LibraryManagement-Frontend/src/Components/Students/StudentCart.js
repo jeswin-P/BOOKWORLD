@@ -11,7 +11,7 @@ function StudentCart() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4060/getcart/${studentid}`)
+      .get(`${imgurl}getcart/${studentid}`)
       .then((response) => {
         setCartItems(response.data.data);
         setLoading(false);
@@ -25,7 +25,7 @@ function StudentCart() {
   // Remove Item from Cart
   const handleRemoveFromCart = (bookid) => {
     axios
-      .post(`http://localhost:4060/removecart/${studentid}/${bookid}`)
+      .post(`${imgurl}removecart/${studentid}/${bookid}`)
       .then((response) => {
         console.log("Removed from cart:", response.data);
         setCartItems(cartItems.filter((item) => item.bookid._id !== bookid));
@@ -46,36 +46,36 @@ function StudentCart() {
         ) : (
           <div class="row">
             {cartItems.map((item) => {
-              return(
-              <div key={item.bookid._id} class="col-md-4 mb-4  ">
-                <div class="card cart-cards ">
-                  <img
-                    src={`${imgurl}${item.bookid?.image.originalname}`}
-                    alt={item.bookid?.booktitle}
-                    class="card-img-top mt-1 img-fluid cart-image"
-                  />
-                  <div class="card-body text-center">
-                    <h5 class="card-title fw-bold">{item.bookid?.booktitle}</h5>
-                    <p class="card-text fw-semibold text-muted">
-                      {item.bookid?.genre}
-                    </p>
-                    <a
-                      href={`/Studentbookdetails/${item.bookid._id}`}
-                      class="btn  cartRemove-button w-100 fw-bold mb-1"
-                    >
-                      View Book
-                    </a>
-                    <button
-                      class="btn cartRemove-button w-100 fw-bold"
-                      onClick={() => handleRemoveFromCart(item.bookid._id)}
-                    >
-                      Remove from Cart
-                    </button>
+              return (
+                <div key={item.bookid._id} class="col-md-4 mb-4  ">
+                  <div class="card cart-cards ">
+                    <img
+                      src={`${imgurl}${item.bookid?.image.originalname}`}
+                      alt={item.bookid?.booktitle}
+                      class="card-img-top mt-1 img-fluid cart-image"
+                    />
+                    <div class="card-body text-center">
+                      <h5 class="card-title fw-bold">{item.bookid?.booktitle}</h5>
+                      <p class="card-text fw-semibold text-muted">
+                        {item.bookid?.genre}
+                      </p>
+                      <a
+                        href={`/Studentbookdetails/${item.bookid._id}`}
+                        class="btn  cartRemove-button w-100 fw-bold mb-1"
+                      >
+                        View Book
+                      </a>
+                      <button
+                        class="btn cartRemove-button w-100 fw-bold"
+                        onClick={() => handleRemoveFromCart(item.bookid._id)}
+                      >
+                        Remove from Cart
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
               )
-})}
+            })}
           </div>
         )}
       </div>

@@ -4,6 +4,7 @@ import profileimg from "../../Assets/Images/profile.png";
 import stdimg from "../../Assets/Images/stdreg.png";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import imgurl from "../../Api/Imgurl";
 
 function StudentReg() {
   const [StudentRegister, setStudentRegister] = useState({
@@ -25,7 +26,7 @@ function StudentReg() {
     });
   };
 
-  
+
   const profileChange = (upload) => {
     const file = upload.target.files[0];
     if (file) {
@@ -49,7 +50,7 @@ function StudentReg() {
 
 
     axios
-      .post("http://localhost:4060/savestudent", studentData, {
+      .post(`${imgurl}savestudent`, studentData, {
         headers: { "Content-Type": "multipart/form-data" },
       })
       .then((response) => {

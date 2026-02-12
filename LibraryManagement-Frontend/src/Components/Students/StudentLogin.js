@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../../Assets/Styles/Login.css";
 import img from "../../Assets/Images/stdlogin.png";
 import { Link, useNavigate } from "react-router-dom";
+import imgurl from "../../Api/Imgurl";
 import axios from "axios";
 
 function StudentLogin() {
@@ -14,18 +15,18 @@ function StudentLogin() {
   const handleStudentLogin = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:4060/loginstudent", Student)
+      .post(`${imgurl}loginstudent`, Student)
       .then((response) => {
         if (response.data.msg == "login successfully" && response.data.data.isactive == true) {
           console.log(response)
           localStorage.setItem("studentid", response.data.data._id)
           navigate("/Studenthome")
         } else {
-          
-          if(response.data.msg == "login successfully"){
-          alert("your account is deactivated by admin please contact admin")
+
+          if (response.data.msg == "login successfully") {
+            alert("your account is deactivated by admin please contact admin")
           }
-          else{
+          else {
             alert(response.data.msg)
           }
         }
