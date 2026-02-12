@@ -31,19 +31,19 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={[<Landing />, <Footer />]} />
-        <Route path='/StudentLogin' element={<StudentLogin />}/>
+        <Route path='/' element={<><Landing /><Footer /></>} />
+        <Route path='/StudentLogin' element={<StudentLogin />} />
         <Route path='/Studentreg' element={<StudentReg />} />
-        <Route path='/Studenthome' element={[<StudentNavbar />, <StudentHome />, <Footer />]} />
+        <Route path='/Studenthome' element={<><StudentNavbar /><StudentHome /><Footer /></>} />
         <Route path='/Studentpf' element={<StudentProfile />} />
-        <Route path='/studentbook' element={[<StudentNavbar />, <StudentBook />, <Footer />]} />
-        <Route path='/studentbookdetails/:id' element={[<StudentNavbar />, <StudentBookDetails />, <Footer />]} />
+        <Route path='/studentbook' element={<><StudentNavbar /><StudentBook /><Footer /></>} />
+        <Route path='/studentbookdetails/:id' element={<><StudentNavbar /><StudentBookDetails /><Footer /></>} />
         <Route path='/StaffLogin' element={<StaffLogin />} />
         <Route path='/StaffRegister' element={<StaffRegister />} />
         <Route path='/Staffpf' element={<StaffProfile />} />
-        <Route path='/Staffhome' element={[<StaffNavbar />, <StaffHome />, <Footer />]} />
-        <Route path='/Staffbook' element={[<StaffNavbar />, <StaffBook />, <Footer />]} />
-        <Route path='/Staffbookdetails/:id' element={[<StaffNavbar />, <StaffBookDetails />, <Footer />]} />
+        <Route path='/Staffhome' element={<><StaffNavbar /><StaffHome /><Footer /></>} />
+        <Route path='/Staffbook' element={<><StaffNavbar /><StaffBook /><Footer /></>} />
+        <Route path='/Staffbookdetails/:id' element={<><StaffNavbar /><StaffBookDetails /><Footer /></>} />
         <Route path='/Adminlogin' element={<AdminLogin />} />
         <Route path='/Adminhome/*' element={<AdminHome />} />
         <Route path='/StudentForget' element={<StudentForgetPassword />} />
