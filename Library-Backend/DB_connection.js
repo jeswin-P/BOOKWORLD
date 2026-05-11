@@ -1,13 +1,21 @@
-var mongoose=require("mongoose")
-mongoose.connect("mongodb://127.0.0.1:27017/library")
+const mongoose = require("mongoose");
+const dotenv = require("dotenv");
 
-var db=mongoose.connection
-db.on("error",console.error.bind(console,"connection error"))
-db.once("open",()=>{
-    console.log("connection successful")
+dotenv.config();
 
-    
-    
-})
+const db_connect = async () => {
+  try {
 
-module.exports=db
+    const conn = await mongoose.connect(process.env.MONGO_URI);
+
+    console.log(`✅ MongoDB Connected: ${conn.connection.host}`);
+
+  } catch (error) {
+
+    console.log("❌ Database Connection Error:", error.message);
+    process.exit(1);
+
+  }
+};
+
+module.exports = db_connect;
