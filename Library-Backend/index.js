@@ -10,6 +10,13 @@ app.use(express.static(`${__dirname}/upload`))
 
 db_connect()
 app.use("/",route)
-var route=app.listen(4060,()=>{
-    console.log("Connection Created")
+
+// var route=app.listen(4060,()=>{
+//     console.log("Connection Created")
+// })
+
+const PORT = process.env.PORT || 4060;
+
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 })
