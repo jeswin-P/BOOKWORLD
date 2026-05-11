@@ -5,7 +5,9 @@ var db_connect = require("./DB_connection")
 var parser = require("body-parser")
 app.use(parser.json())
 var cors = require("cors")
-app.use(cors())
+app.use(cors(
+    {origin: "https://bookworld-nu.vercel.app/"}
+))
 app.use(express.static(`${__dirname}/upload`))
 
 db_connect()
