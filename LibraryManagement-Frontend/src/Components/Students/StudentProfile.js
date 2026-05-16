@@ -145,7 +145,7 @@ function StudentProfile() {
 
       <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container-fluid">
-          <button className="btn  d-lg-none me-2" onClick={toggleSidebar}>
+          <button className="btn side-toggle  d-lg-none me-2" onClick={toggleSidebar}>
             <i class="ri-menu-line"></i>
           </button>
 
@@ -294,7 +294,7 @@ function StudentProfile() {
                 <h5 class="modal-title fw-bold ">Edit Profile</h5>
                 <button
                   type="button"
-                  class="btn-close close-edit"
+                  class="btn-close btn-close-white close-edit"
                   onClick={handleClose}
                 ></button>
               </div>

@@ -39,7 +39,7 @@ function StaffNavbar() {
                             </h5>
                             <button
                                 type="button"
-                                class="btn-close "
+                                className="btn-close btn-close-white"
                                 data-bs-dismiss="offcanvas"
                                 aria-label="Close"
                             ></button>
@@ -47,23 +47,23 @@ function StaffNavbar() {
                         <div class="offcanvas-body fw-bold">
                             <ul class="navbar-nav  justify-content-center flex-grow-1 pe-2 ">
                                 <li class="nav-item list">
-                                    <Link to={"/staffhome"} class="nav-link active mx-lg-2 ">
+                                    <Link to={"/Staffhome"} class="nav-link active mx-lg-2 ">
                                         HOME
                                     </Link>
                                 </li>
                                 <li class="nav-item list">
-                                    <Link to={"/staffpf"} class="nav-link active mx-lg-2">
+                                    <Link to={"/Staffpf"} class="nav-link active mx-lg-2" >
                                         PROFILE
                                     </Link>
                                 </li>
                                 <li class="nav-item list">
-                                    <Link to={"/staffbook"} class="nav-link list active mx-lg-2">
+                                    <Link to={"/Staffbook"} class="nav-link list active mx-lg-2" >
                                         BOOKS
                                     </Link>
                                 </li>
 
                             </ul>
-                            <a href="/home" class="btn logout-button fw-bold  " onClick={handleLogout}>LOGOUT</a>
+                            <a href="/home" class="btn logout-button fw-bold  " onClick={handleLogout} >LOGOUT</a>
                         </div>
                     </div>
                 </div>

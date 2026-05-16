@@ -49,7 +49,7 @@ function AdminHome() {
                 <h5 class="offcanvas-title">BOOKWORLD</h5>
                 <button
                   type="button"
-                  class="btn-close"
+                  className="btn-close btn-close-white"
                   data-bs-dismiss="offcanvas"
                   aria-label="Close"
                 ></button>
@@ -67,12 +67,12 @@ function AdminHome() {
                     </button>
                     <ul class="dropdown-menu dropadmin">
                       <li>
-                      <Link className="dropdown-item" to="staffborrow">
+                      <Link className="dropdown-item" to="staffborrow" >
                         STAFF Book list
                       </Link>
                       </li>
                       <li>
-                      <Link className="dropdown-item" to="borrowlist">
+                      <Link className="dropdown-item" to="borrowlist" >
                         STUDENT Book List
                       </Link>
                       </li>
@@ -90,12 +90,12 @@ function AdminHome() {
                     </button>
                     <ul class="dropdown-menu dropadmin">
                       <li>
-                      <Link className="dropdown-item" to="stafflist">
+                      <Link className="dropdown-item" to="stafflist" >
                         STAFF
                       </Link>
                       </li>
                       <li>
-                      <Link className="dropdown-item" to="studentlist">
+                      <Link className="dropdown-item" to="studentlist" >
                         STUDENT
                       </Link>
                       </li>
@@ -112,19 +112,19 @@ function AdminHome() {
                     </button>
                     <ul class="dropdown-menu dropadmin ">
                       <li>
-                      <Link className="dropdown-item" to="booklist">
+                      <Link className="dropdown-item" to="booklist" >
                         BOOKS LIST
                       </Link>
                       </li>
                       <li>
-                      <Link className="dropdown-item" to="addbook">
+                      <Link className="dropdown-item" to="addbook" >
                         ADD BOOKS
                       </Link>
                       </li>
                     </ul>
                   </div>
                 </div>
-                <a href="#" class="btn logout-button fw-bold" onClick={handleAdminLogout}>
+                <a href="#" class="btn logout-button fw-bold" onClick={handleAdminLogout} >
                   LOGOUT
                 </a>
               </div>

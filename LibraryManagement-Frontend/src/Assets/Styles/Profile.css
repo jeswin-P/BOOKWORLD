@@ -13,7 +13,9 @@
   text-decoration: none;
 }
 
-
+.side-toggle{
+  color: white;
+}
 /* dropdown */
 .profile-menu {
   background-color: #4f7c82;
@@ -41,7 +43,7 @@
   bottom: 0;
   width: 250px;
   background-color: #0b2e33;
-  color: white;
+  color: white !important;
   transition: transform 0.3s ease-in-out;
   z-index: 999;
 }
@@ -49,6 +51,7 @@
 .slidebar button {
   color: white !important;
 }
+
 
 .text-slidebar {
   color: white;
@@ -65,15 +68,20 @@
 @media (min-width: 992px) {
   .sidebar {
     transform: translateX(0);
+    color: white !important;
   }
 }
 
 .close-btn {
   position: absolute;
-  color: white;
-  top: 5px;
-  right: 10px;
+  color: white !important;
+  top: 10px;
+  right: 15px;
   font-size: 1.5rem;
+  background: transparent;
+  border: none;
+  padding: 5px;
+  z-index: 1050;
 }
 
 .edit-btn {
@@ -145,8 +153,7 @@
     overflow: hidden;
     display: flex;
     justify-content: center;  
-    align-items: center;
-    margin: 20px 60px;  
+    align-items: center; 
     transition: .2s; 
 
 

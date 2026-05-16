@@ -64,34 +64,36 @@ function BorrowedList() {
           <div>No  borrowed books found.</div>
         ) : (
 
-          <table class="table table-bordered">
-            <thead>
-              <tr>
-                <th>User Name</th>
-                <th>Book Title</th>
-                <th> Returnbook</th>
-              </tr>
-            </thead>
+          <div class="table-responsive">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>User Name</th>
+                  <th>Book Title</th>
+                  <th> Returnbook</th>
+                </tr>
+              </thead>
 
-            <tbody>
-              {Borrowed.map((e) => {
-                return (
-
-
-                  <tr>
-                    <td class="fw-bold" onClick={() => handleViewStudent(e?.studentid)}>{e?.studentid?.name}</td>
-                    <td class="fw-bold" onClick={() => handleViewBook(e?.bookid)}>{e?.bookid?.booktitle}</td>
-                    <td><button class="btn retrn-removebtn text-center fw-bold" onClick={() => returnbook(e?.studentid?._id, e?.bookid?._id)}>remove</button></td>
-                  </tr>
+              <tbody>
+                {Borrowed.map((e) => {
+                  return (
 
 
+                    <tr>
+                      <td class="fw-bold" onClick={() => handleViewStudent(e?.studentid)}>{e?.studentid?.name}</td>
+                      <td class="fw-bold" onClick={() => handleViewBook(e?.bookid)}>{e?.bookid?.booktitle}</td>
+                      <td><button class="btn retrn-removebtn text-center fw-bold text-nowrap" onClick={() => returnbook(e?.studentid?._id, e?.bookid?._id)}>remove</button></td>
+                    </tr>
 
-                )
 
-              })}
-            </tbody>
 
-          </table>
+                  )
+
+                })}
+              </tbody>
+
+            </table>
+          </div>
 
         )}
       </div>

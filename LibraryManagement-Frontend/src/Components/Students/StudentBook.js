@@ -138,14 +138,15 @@ function StudentBook() {
                 (filteredBooks.map((books, index) => {
                   return (
 
-                    <div class=" col-lg-4 col-md-6 col-sm-12">
+                    <div class="col-12 col-md-6 col-lg-4 mb-4">
                       <motion.div
                         key={index}
                         initial={{ opacity: 0, x: 50 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: index * 0.1 }}
+                        className="h-100"
                       >
-                        <div class="card book-card">
+                        <div class="card book-card h-100">
                           <img src={`${imgurl}${books?.image?.originalname}`} alt='' class="card-img-top" />
                           <div class="card-body text-center">
                             <h5 class="card-title fw-bold">{books.booktitle}</h5>

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import "../../Assets/Styles/Favorites.css"
 import { motion } from 'framer-motion'
 import axios from 'axios'
 import imgurl from '../../Api/Imgurl'
@@ -26,11 +25,11 @@ function MyFavorites() {
         <div class="container-fluid  Morebooks-con ">
           <h1 class="text-center py-3">Favorite</h1>
           <div class="container ">
-            <div class="row">
+            <div class="row d-flex justify-content-start ">
               {Favorite.map((fav, index) => {
                 return (
 
-                  <div class=" col-lg-4 col-md-6 col-sm-12">
+                <div class=" col-lg-4 col-md-6 col-sm-12 ">
                     <motion.div
                       key={index}
                       initial={{ opacity: 0, x: 50 }}

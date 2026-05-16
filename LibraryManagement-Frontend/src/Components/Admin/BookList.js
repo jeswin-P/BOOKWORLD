@@ -112,10 +112,10 @@ function BookList() {
         <h1 class="fw-bold mb-4">BOOK LIST</h1>
         <div class="container">
           <div class="row d-flex justify-content-between">
-            <div class="col-lg-3 col-sm-12 count-list fw-bold mb-4 ">
+            <div class="col-12 col-md-4 count-list fw-bold mb-3 mb-md-4">
               <p class="mt-3 text-center" >Total Books: {totalBooks} / {selectedCategory}: {categoryBookCount}</p></div>
-            <div class="col-lg-3 col-sm-12">
-              <select onChange={handleCategoryChange} value={selectedCategory} class="category-button">
+            <div class="col-12 col-md-4 mb-3 mb-md-0">
+              <select onChange={handleCategoryChange} value={selectedCategory} class="category-button w-100">
                 <option class="fw-bold" value="All Books">ALL category</option>
                 {categoryCount.map((category, index) => (
                   <option class="fw-bold" key={index} value={category._id}>
@@ -123,7 +123,7 @@ function BookList() {
                   </option>
                 ))}
               </select></div>
-            <div class="col-lg-3 col-sm-12">
+            <div class="col-12 col-md-4">
               <div class="search-col order-sm-2">
                 <div class="se-box">
                   <input
@@ -148,45 +148,47 @@ function BookList() {
 
           {/* Book List Table */}
           <div class="row">
-            <table class="table mb-5">
-              <thead>
-                <tr>
-                  <th scope="col">SL.NO</th>
-                  <th scope="col">TITLE</th>
-                  <th scope="col">AUTHOR</th>
-                  <th scope="col">GENRE</th>
-                  <th scope="col"></th>
-                </tr>
-              </thead>
-              {filteredBooks.length > 0 ? (
-                filteredBooks.map((book, index) => {
-                  return (
-                    <tbody key={book._id}>
-                      <tr>
-                        <th scope="row">{index + 1}</th>
-                        <td class="fw-bold">{book.booktitle}</td>
-                        <td class="fw-semibold">{book.authorname}</td>
-                        <td class="fw-semibold">{book.genre}</td>
-                        <td>
-                          <a
-                            href="#"
-                            class="btn remove-button fw-bold"
-                            onClick={() => openModal(book)}
-                          >
-                            remove Book
-                          </a>
-                        </td>
-                      </tr>
-                    </tbody>
-                  );
-                })
-              ) : (
-                <div class="text-center mt-5">
-                  <h3 class="text-dark  fw-bold ">No books found !</h3>
-                  <p>Try a different search term.</p>
-                </div>
-              )}
-            </table>
+            <div class="table-responsive">
+              <table class="table mb-5">
+                <thead>
+                  <tr>
+                    <th scope="col">SL.NO</th>
+                    <th scope="col">TITLE</th>
+                    <th scope="col">AUTHOR</th>
+                    <th scope="col">GENRE</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                {filteredBooks.length > 0 ? (
+                  filteredBooks.map((book, index) => {
+                    return (
+                      <tbody key={book._id}>
+                        <tr>
+                          <th scope="row">{index + 1}</th>
+                          <td class="fw-bold">{book.booktitle}</td>
+                          <td class="fw-semibold">{book.authorname}</td>
+                          <td class="fw-semibold">{book.genre}</td>
+                          <td>
+                            <a
+                              href="#"
+                              class="btn remove-button fw-bold text-nowrap"
+                              onClick={() => openModal(book)}
+                            >
+                              remove Book
+                            </a>
+                          </td>
+                        </tr>
+                      </tbody>
+                    );
+                  })
+                ) : (
+                  <div class="text-center mt-5">
+                    <h3 class="text-dark  fw-bold ">No books found !</h3>
+                    <p>Try a different search term.</p>
+                  </div>
+                )}
+              </table>
+            </div>
           </div>
         </div>
       </div>
