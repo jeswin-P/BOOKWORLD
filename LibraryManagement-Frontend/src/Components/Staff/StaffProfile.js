@@ -148,7 +148,7 @@ function StaffProfile() {
       <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container-fluid">
           <button
-            className="btn menu-btn d-lg-none me-2"
+            className="btn side-toggle menu-btn d-lg-none me-2"
             onClick={toggleSidebar}
           >
             <i class="ri-menu-line"></i>
@@ -302,7 +302,7 @@ function StaffProfile() {
                 <h5 class="modal-title fw-bold ">Edit Profile</h5>
                 <button
                   type="button"
-                  class="btn-close close-edit"
+                  class="btn-close btn-close-white close-edit"
                   onClick={handleClose}
                 ></button>
               </div>

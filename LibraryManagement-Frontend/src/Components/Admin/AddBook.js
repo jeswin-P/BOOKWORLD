@@ -101,7 +101,7 @@ function AddBook() {
                 <form onSubmit={handleSubmit}>
                   <div class="row">
                     {/* Left Side: Image Input */}
-                    <div class="col-md-4 ">
+                    <div class="col-12 col-md-4 mb-4 mb-md-0">
                       <label for="coverimage">
                         <div class="mb-4 book-cover  ">
 
@@ -144,7 +144,7 @@ function AddBook() {
                     </div>
 
                     {/* Right Side: Form Fields */}
-                    <div class="col-md-8">
+                    <div class="col-12 col-md-8">
                       <div class="mb-3">
                         <label class="form-label fw-semibold">
                           Book Description

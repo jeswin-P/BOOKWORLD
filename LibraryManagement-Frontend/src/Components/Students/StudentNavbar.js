@@ -40,7 +40,7 @@ function StudentNavbar() {
               </h5>
               <button
                 type="button"
-                class="btn-close "
+                className="btn-close btn-close-white"
                 data-bs-dismiss="offcanvas"
                 aria-label="Close"
               ></button>
@@ -53,18 +53,18 @@ function StudentNavbar() {
                   </Link>
                 </li>
                 <li class="nav-item list">
-                  <Link to={"/studentpf"} class="nav-link active mx-lg-2">
+                  <Link to={"/Studentpf"} class="nav-link active mx-lg-2" >
                     PROFILE
                   </Link>
                 </li>
                 <li class="nav-item list">
-                  <Link to={"/studentbook"} class="nav-link list active mx-lg-2 ">
+                  <Link to={"/Studentbook"} class="nav-link list active mx-lg-2 " >
                     BOOKS
                   </Link>
                 </li>
 
               </ul>
-              <a href="/home" class="btn logout-button fw-bold  " onClick={handleLogout}>LOGOUT</a>
+              <a href="/home" class="btn logout-button fw-bold  " onClick={handleLogout} >LOGOUT</a>
             </div>
           </div>
         </div>

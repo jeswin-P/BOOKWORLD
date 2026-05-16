@@ -11,10 +11,10 @@ function Login() {
     <section class="Login-main">
       <div class="container login-con p-0 ">
         <div class="row">
-          <div class="col-lg-5 col-md-6 d-none d-lg-block  m-auto">
+          <div class="col-12 col-lg-5 col-md-6 d-none d-lg-block  m-auto">
             <img src={mainlogin} alt="" class="img-fluid p-5" />
           </div>
-          <div class="col-lg-7 col-md-6 col-sm-12  p-0  ">
+          <div class="col-12 col-lg-7 col-md-6 p-0  ">
             <div class="container text-center  loginus-con">
               <div class="row">
                 <h1 class="mt-lg-3 mt-sm-1">LOGIN US</h1>

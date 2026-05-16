@@ -48,32 +48,34 @@ function StudentList() {
         <h1 class="fw-bold mb-4">Student LIST</h1>
         <div class="container ">
           <div class="row">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th scope="col">SL.NO</th>
-                  <th scope="col">NAME</th>
-                  <th scope="col">department</th>
-                  <th scope="col">reg.no</th>
-                  <th scope="col">info</th>
-                </tr>
-              </thead>
-              {StudentsList.map((data, index) => {
-                return (
-                  <tbody>
-                    <tr>
-                      <th scope="row">{index + 1}</th>
-                      <td class="fw-bold">{data.name}</td>
-                      <td class="fw-semibold">{data.department}</td>
-                      <td class="fw-semibold">{data.regno}</td>
-                      <td>
-                        <div onClick={() => handleViewDetails(data)} ><i class="ri-information-2-fill"></i></div>
-                      </td>
-                    </tr>
-                  </tbody>
-                );
-              })}
-            </table>
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">SL.NO</th>
+                    <th scope="col">NAME</th>
+                    <th scope="col">department</th>
+                    <th scope="col">reg.no</th>
+                    <th scope="col">info</th>
+                  </tr>
+                </thead>
+                {StudentsList.map((data, index) => {
+                  return (
+                    <tbody>
+                      <tr>
+                        <th scope="row">{index + 1}</th>
+                        <td class="fw-bold">{data.name}</td>
+                        <td class="fw-semibold">{data.department}</td>
+                        <td class="fw-semibold">{data.regno}</td>
+                        <td>
+                          <div onClick={() => handleViewDetails(data)} ><i class="ri-information-2-fill"></i></div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  );
+                })}
+              </table>
+            </div>
           </div>
         </div>
       </div>

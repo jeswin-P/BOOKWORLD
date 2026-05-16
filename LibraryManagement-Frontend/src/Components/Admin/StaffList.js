@@ -48,32 +48,34 @@ function StaffList() {
         <h1 class="fw-bold mb-4">Staff LIST</h1>
         <div class="container ">
           <div class="row">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th scope="col">SL.NO</th>
-                  <th scope="col">NAME</th>
-                  <th scope="col">ID.NO</th>
-                  <th scope="col">Department</th>
-                  <th scope="col">info</th>
-                </tr>
-              </thead>
-              {StaffList.map((staff, index) => {
-                return (
-                  <tbody>
-                    <tr>
-                      <th scope="row">{index + 1}</th>
-                      <td>{staff.name}</td>
-                      <td>{staff.idno}</td>
-                      <td>{staff.department}</td>
-                      <td>
-                        <div onClick={() => handleViewDetails(staff)} ><i class="ri-information-2-fill ic"></i></div>
-                      </td>
-                    </tr>
-                  </tbody>
-                );
-              })}
-            </table>
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">SL.NO</th>
+                    <th scope="col">NAME</th>
+                    <th scope="col">ID.NO</th>
+                    <th scope="col">Department</th>
+                    <th scope="col">info</th>
+                  </tr>
+                </thead>
+                {StaffList.map((staff, index) => {
+                  return (
+                    <tbody>
+                      <tr>
+                        <th scope="row">{index + 1}</th>
+                        <td>{staff.name}</td>
+                        <td>{staff.idno}</td>
+                        <td>{staff.department}</td>
+                        <td>
+                          <div onClick={() => handleViewDetails(staff)} ><i class="ri-information-2-fill ic"></i></div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  );
+                })}
+              </table>
+            </div>
           </div>
         </div>
       </div>

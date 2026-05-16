@@ -68,10 +68,10 @@ function StudentReg() {
     <section class="register">
       <div class="container text-center reg-contain ">
         <div class="row">
-          <div class="col-lg-5 col-md-6 col-sm-12 order-1 m-auto">
+          <div class="col-12 col-lg-5 col-md-6 order-1 m-auto">
             <img src={stdimg} alt="" class="img-fluid p-5" />
           </div>
-          <div class="col-lg-7 col-md-6 col-sm-12 order-sm-2 ">
+          <div class="col-12 col-lg-7 col-md-6 order-2">
             <form class="reg-form" onSubmit={handleSubmit}>
               <h1 class="mt-4">REGISTER FORM</h1>
 

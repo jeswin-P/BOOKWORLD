@@ -21,7 +21,7 @@
     object-fit: cover;
     justify-content: center;  
     align-items: center;
-    margin: 20px 60px;
+    margin: 20px auto;
     transition: transform 0.3s ease;
 }
 .card-loginimg{
