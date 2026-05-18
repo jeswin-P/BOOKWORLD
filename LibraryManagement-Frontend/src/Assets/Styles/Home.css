@@ -27,6 +27,19 @@
     background-color:white;
     color: black;
 } 
+
+@media screen and (max-width: 768px) {
+   .logout-button{
+    background:none; 
+    border:none; 
+    color:white; 
+    padding:8px 0px; 
+    font-size:16px; 
+    border-radius:0;  
+
+   }
+    
+}
 .navbar-toggler{
     border: none;
     
@@ -70,7 +83,7 @@ section{
 }
 .home h1{
     font-weight: 700;
-    letter-spacing:14px;
+    letter-spacing: 0.1em;
     
     
 }

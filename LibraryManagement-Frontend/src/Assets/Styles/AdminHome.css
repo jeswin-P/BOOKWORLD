@@ -142,3 +142,27 @@
 .ic{
     width: 20px;
 }
+
+@media screen and (max-width:768px){
+
+
+
+.logout-button{
+
+    background:none !important;
+    border:none !important;
+
+    color:white !important;
+
+    padding:12px 10px !important;
+
+    border-radius:0 !important;
+
+    width:100%;
+
+    text-align:left;
+
+}
+
+
+}
