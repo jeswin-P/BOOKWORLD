@@ -56,7 +56,7 @@ function AdminHome() {
               </div>
               <div class="offcanvas-body ">
                 <div class="nav d-flex justify-content-center flex-grow-1 pe-2">
-                <div class="dropdown ">
+                <div className="dropdown ">
                     <button
                       class="btn navbar-droplist  dropdown-toggle mx-lg-2 fw-bold"
                       type="button"

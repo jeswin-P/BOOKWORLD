@@ -33,8 +33,8 @@ function StudentHome() {
             <p class="my-lg-5 my-sm-3 anime">Reading gives us someplace to go when we have to stay where we are,
               as turning pages and discovering new worlds allow us to get lost in the story
               and find ourselves within it</p>
-            <div class="input-group m-2">
-              <Link to={'/studentbook'}><button class="btn ex-more anime anime-btn">explore more</button></Link>
+            <div class="">
+              <Link to={'/studentbook'}><button class="btn ex-more anime anime-btn mb-3">explore more</button></Link>
             </div>
           </div>
           <div class="col-lg-5 col-md-5 col-12 my-sm-1   order-sm-2">
